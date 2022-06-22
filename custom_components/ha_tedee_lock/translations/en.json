@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "If you need help with the configuration have a look here: https://github.com/andrzejchm/ha_tedee_lock",
+        "data": {
+          "ip_address": "IP Address",
+          "port": "Port"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only a single instance is allowed.",
+      "already_configured": "Device is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "user": {
+        "data": {
+          "ip_address": "IP Address",
+          "port": "Port"
+        }
+      }
+    }
+  }
+}

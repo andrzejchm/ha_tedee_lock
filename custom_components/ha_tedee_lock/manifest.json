@@ -1,0 +1,12 @@
+{
+  "domain": "ha_tedee_lock",
+  "name": "Tedee Lock",
+  "documentation": "https://github.com/andrzejchm/ha_tedee_lock",
+  "issue_tracker": "https://github.com/andrzejchm/ha_tedee_lock/issues",
+  "dependencies": [],
+  "version": "1.0.0",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "codeowners": ["@andrzejchm"],
+  "requirements": []
+}
