@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Instrukcja jak uzyskać personal access token (PAK) znajduje się tutaj: https://tedee-tedee-api-doc.readthedocs-hosted.com/en/latest/howtos/authenticate.html#personal-access-key",
+        "data": {
+          "personal_access_token": "Personal Access Token"
+        }
+      },
+      "select_devices": {
+        "description": "Wybierz urządzenia, które chcesz użyć w Home Assistant",
+        "data": {
+          "select_devices": "Urządzenia"
+        }
+      }
+    },
+    "error": {
+      "no_devices_found": "Na podanym koncie nie ma żadnych urządzeń",
+      "unknown_error": "Stalo sie cos dziwnego, sprawdź logi"
+    },
+    "abort": {
+      "single_instance_allowed": "Tylko jedno urządzenie o tych samych parametrach może być dodane.",
+      "already_configured": "Urządzenie jest już skonfigurowane"
+    }
+  },
+  "options": {
+    "step": {
+      "user": {
+        "data": {
+          "personal_access_token": "Personal Access Token"
+        }
+      }
+    }
+  }
+}
