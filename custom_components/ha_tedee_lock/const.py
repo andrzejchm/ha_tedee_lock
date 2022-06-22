@@ -7,11 +7,10 @@ VERSION = "1.0.0"
 
 ISSUE_URL = "https://github.com/andrzejchm/ha_tedee_lock/issues"
 
-
 # Platforms
-COVER = "cover"
-PLATFORMS = [COVER]
-
+LOCK = "lock"
+SENSOR = "sensor"
+PLATFORMS = [LOCK, SENSOR]
 
 # Configuration and options
 CONF_IP_ADDRESS = "ip_address"
@@ -19,11 +18,9 @@ CONF_PORT = "port"
 STATE = "state"
 DATA = "data"
 API_CLIENT = "api_client"
-DEVICE_INFO = "device_info"
 
 # Defaults
 DEFAULT_NAME = DOMAIN
-DEFAULT_SETUP_TIMEOUT = 10
 DEFAULT_PORT = 80
 
 STARTUP_MESSAGE = f"""

@@ -5,11 +5,10 @@ from homeassistant import config_entries
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
-from . import create_schema
 from . import TedeeLockApiClient
+from . import create_schema
 from .const import CONF_IP_ADDRESS
 from .const import CONF_PORT
-from .errors import ErrorWithMessageId
 
 _LOGGER = logging.getLogger(__name__)
 
