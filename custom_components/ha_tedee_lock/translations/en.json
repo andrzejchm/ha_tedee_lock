@@ -2,12 +2,20 @@
   "config": {
     "step": {
       "user": {
-        "description": "If you need help with the configuration have a look here: https://github.com/andrzejchm/ha_tedee_lock",
+        "description": "Instruction on how to obtain your personal access token (PAK) can be found here: https://tedee-tedee-api-doc.readthedocs-hosted.com/en/latest/howtos/authenticate.html#personal-access-key",
         "data": {
-          "ip_address": "IP Address",
-          "port": "Port"
+          "personal_access_token": "Personal Access Token"
+        }
+      },
+      "select_devices" : {
+        "description": "Select devices you'd like to use in Home Assistant",
+        "data": {
+          "select_devices": "Devices"
         }
       }
+    },
+    "error" : {
+      "no_devices_found": "Account you provided has no devices set up"
     },
     "abort": {
       "single_instance_allowed": "Only a single instance is allowed.",
@@ -18,8 +26,7 @@
     "step": {
       "user": {
         "data": {
-          "ip_address": "IP Address",
-          "port": "Port"
+          "personal_access_token": "Personal Access Token"
         }
       }
     }

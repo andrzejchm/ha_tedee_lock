@@ -14,9 +14,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
 from .api import TedeeLockApiClient
-from .const import API_CLIENT
-from .const import CONF_IP_ADDRESS
-from .const import CONF_PORT
+from .const import API_CLIENT, CONF_PERSONAL_ACCESS_TOKEN
 from .const import DATA
 from .const import DEFAULT_PORT
 from .const import DOMAIN
@@ -55,8 +53,13 @@ async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
     await async_setup_entry(hass, entry)
 
 
-def create_schema(
-        user_input: Optional[Dict[str, any]],
+def access_token_schema(
+        user_input: Optional[Dict[str, any]] = None,
 ) -> vol.Schema:
     """creates schema for config flow and options flow"""
-    return vol.Schema({})
+    return vol.Schema({
+        vol.Required(
+            CONF_PERSONAL_ACCESS_TOKEN,
+            default=(user_input or {}).get(CONF_PERSONAL_ACCESS_TOKEN),
+        ): str
+    })

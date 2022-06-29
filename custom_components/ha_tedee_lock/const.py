@@ -13,11 +13,13 @@ SENSOR = "sensor"
 PLATFORMS = [LOCK, SENSOR]
 
 # Configuration and options
-CONF_IP_ADDRESS = "ip_address"
-CONF_PORT = "port"
+CONF_PERSONAL_ACCESS_TOKEN = "personal_access_token"
+CONF_DEVICE_ID = "device_id"
+CONF_DEVICE_TYPE = "device_type"
 STATE = "state"
 DATA = "data"
 API_CLIENT = "api_client"
+API_BASE_URL = "https://api.tedee.com"
 
 # Defaults
 DEFAULT_NAME = DOMAIN
