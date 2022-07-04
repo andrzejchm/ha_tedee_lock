@@ -7,15 +7,16 @@
           "personal_access_token": "Personal Access Token"
         }
       },
-      "select_devices" : {
+      "select_devices": {
         "description": "Select devices you'd like to use in Home Assistant",
         "data": {
           "select_devices": "Devices"
         }
       }
     },
-    "error" : {
-      "no_devices_found": "Account you provided has no devices set up"
+    "error": {
+      "no_devices_found": "Account you provided has no devices set up",
+      "unknown_error": "Something weird happened, please check logs"
     },
     "abort": {
       "single_instance_allowed": "Only a single instance is allowed.",

@@ -10,15 +10,15 @@ ISSUE_URL = "https://github.com/andrzejchm/ha_tedee_lock/issues"
 # Platforms
 LOCK = "lock"
 SENSOR = "sensor"
-PLATFORMS = [LOCK, SENSOR]
+SENSOR = "sensor"
+BINARY_SENSOR = "binary_sensor"
+PLATFORMS = [LOCK, SENSOR, BINARY_SENSOR]
 
 # Configuration and options
 CONF_PERSONAL_ACCESS_TOKEN = "personal_access_token"
-CONF_DEVICE_ID = "device_id"
+CONF_DEVICE_INFO = "device_info"
 CONF_DEVICE_TYPE = "device_type"
-STATE = "state"
-DATA = "data"
-API_CLIENT = "api_client"
+CONF_DEVICE_ID = "device_id"
 API_BASE_URL = "https://api.tedee.com"
 
 # Defaults

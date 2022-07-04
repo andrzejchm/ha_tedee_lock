@@ -15,7 +15,8 @@
       }
     },
     "error": {
-      "no_devices_found": "Na podanym koncie nie ma żadnych urządzeń"
+      "no_devices_found": "Na podanym koncie nie ma żadnych urządzeń",
+      "unknown_error": "Stalo sie cos dziwnego, sprawdź logi"
     },
     "abort": {
       "single_instance_allowed": "Tylko jedno urządzenie o tych samych parametrach może być dodane.",

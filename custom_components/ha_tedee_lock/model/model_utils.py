@@ -42,11 +42,11 @@ def from_none(x: Any) -> Any:
     return x
 
 
-def to_class(c: Type[T], x: Any) -> dict:
-    assert isinstance(x, c)
+def to_class(cls: Type[T], x: Any) -> dict:
+    assert isinstance(x, cls)
     return cast(Any, x).to_dict()
 
 
-def from_list(f: Callable[[Any], T], x: Any) -> List[T]:
-    assert isinstance(x, list)
-    return [f(y) for y in x]
+def from_list(f: Callable[[Any], T], json_list: Any) -> List[T]:
+    assert isinstance(json_list, list)
+    return [f(item) for item in json_list]

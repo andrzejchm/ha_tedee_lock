@@ -12,14 +12,24 @@ from typing import Optional
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from .api import TedeeLockApiClient
-from .const import API_CLIENT, CONF_PERSONAL_ACCESS_TOKEN
-from .const import DATA
-from .const import DEFAULT_PORT
+from .const import (
+    CONF_PERSONAL_ACCESS_TOKEN,
+    CONF_DEVICE_INFO,
+    CONF_DEVICE_ID,
+    CONF_DEVICE_TYPE,
+)
 from .const import DOMAIN
 from .const import PLATFORMS
 from .const import STARTUP_MESSAGE
+from .data_update_coordinator import TedeeUpdateCoordinator
+from .model.device_type import DeviceType
+from .model.devices import device_from_dict
+from .model.devices.device import Device
 
 _LOGGER: logging.Logger = logging.getLogger(__package__)
 
@@ -28,7 +38,45 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up this integration using UI."""
     if hass.data.get(DOMAIN) is None:
         _LOGGER.info(STARTUP_MESSAGE)
-    return False
+
+    hass.data.setdefault(DOMAIN, {})
+    hass.data[DOMAIN].setdefault(entry.entry_id, {})
+    token = entry.data.get(CONF_PERSONAL_ACCESS_TOKEN)
+    device_info_dict = entry.data.get(CONF_DEVICE_INFO)
+    device_type = DeviceType(entry.data.get(CONF_DEVICE_TYPE))
+    session = async_get_clientsession(hass)
+    api_client = TedeeLockApiClient(token, session, hass)
+    coordinator = TedeeUpdateCoordinator(
+        hass=hass,
+        api=api_client,
+    )
+
+    device = device_from_dict(device_info_dict, device_type=device_type)
+    hass.data[DOMAIN][entry.entry_id] = coordinator
+
+    await _refresh_tedee_data(coordinator, device)
+
+    hass.config_entries.async_setup_platforms(entry, PLATFORMS)
+    return True
+
+
+async def _refresh_tedee_data(
+    coordinator: DataUpdateCoordinator,
+    device: Device,
+):
+    try:
+        await coordinator.async_config_entry_first_refresh()
+        if not coordinator.data.get(device.data_key):
+            raise ConfigEntryNotReady(
+                f"missing device info for ({device.device_type}) id: {device.id}"
+            )
+    except ConfigEntryNotReady as ex:
+        _LOGGER.exception(ex)
+        raise ex
+    except Exception as ex:
+        _LOGGER.exception(ex)
+        message = f"could not set up Tedee device: {ex}"
+        raise ConfigEntryNotReady(message)
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
@@ -54,12 +102,14 @@ async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
 
 
 def access_token_schema(
-        user_input: Optional[Dict[str, any]] = None,
+    user_input: Optional[Dict[str, any]] = None,
 ) -> vol.Schema:
     """creates schema for config flow and options flow"""
-    return vol.Schema({
-        vol.Required(
-            CONF_PERSONAL_ACCESS_TOKEN,
-            default=(user_input or {}).get(CONF_PERSONAL_ACCESS_TOKEN),
-        ): str
-    })
+    return vol.Schema(
+        {
+            vol.Required(
+                CONF_PERSONAL_ACCESS_TOKEN,
+                default=(user_input or {}).get(CONF_PERSONAL_ACCESS_TOKEN),
+            ): str
+        }
+    )
