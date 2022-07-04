@@ -1,10 +1,15 @@
 from dataclasses import dataclass
-from typing import Optional, Any
+from typing import Any
+from typing import Optional
 from uuid import UUID
 
-from .device import Device
-from ..model_utils import from_none, from_union, from_bool, from_int, from_str
 from ... import DeviceType
+from ..model_utils import from_bool
+from ..model_utils import from_int
+from ..model_utils import from_none
+from ..model_utils import from_str
+from ..model_utils import from_union
+from .device import Device
 
 
 @dataclass

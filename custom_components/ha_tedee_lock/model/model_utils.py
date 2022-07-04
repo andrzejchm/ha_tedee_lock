@@ -1,4 +1,9 @@
-from typing import Any, List, TypeVar, Type, cast, Callable
+from typing import Any
+from typing import Callable
+from typing import cast
+from typing import List
+from typing import Type
+from typing import TypeVar
 
 T = TypeVar("T")
 

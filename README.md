@@ -7,7 +7,7 @@
 **This component will set up the following platforms.**
 
 | Platform | Description                                                                     |
-|----------|---------------------------------------------------------------------------------|
+| -------- | ------------------------------------------------------------------------------- |
 | `lock`   | Sets up Tedee Lock to be used as lock,allowing for opening and closing the lock |
 
 ## Installation

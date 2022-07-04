@@ -17,12 +17,10 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from .api import TedeeLockApiClient
-from .const import (
-    CONF_PERSONAL_ACCESS_TOKEN,
-    CONF_DEVICE_INFO,
-    CONF_DEVICE_ID,
-    CONF_DEVICE_TYPE,
-)
+from .const import CONF_DEVICE_ID
+from .const import CONF_DEVICE_INFO
+from .const import CONF_DEVICE_TYPE
+from .const import CONF_PERSONAL_ACCESS_TOKEN
 from .const import DOMAIN
 from .const import PLATFORMS
 from .const import STARTUP_MESSAGE

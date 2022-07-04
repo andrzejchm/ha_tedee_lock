@@ -1,7 +1,15 @@
 from dataclasses import dataclass
-from typing import Optional, List, TypeVar, Any, Generic
+from typing import Any
+from typing import Generic
+from typing import List
+from typing import Optional
+from typing import TypeVar
 
-from ..model_utils import from_union, from_list, from_bool, from_none, from_int
+from ..model_utils import from_bool
+from ..model_utils import from_int
+from ..model_utils import from_list
+from ..model_utils import from_none
+from ..model_utils import from_union
 
 T = TypeVar("T")
 

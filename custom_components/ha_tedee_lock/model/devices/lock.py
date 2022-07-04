@@ -2,9 +2,14 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 
-from ...model.model_utils import from_int, from_bool, from_str, from_union, \
-    from_none, to_class
-from .device import Device, DeviceType
+from ...model.model_utils import from_bool
+from ...model.model_utils import from_int
+from ...model.model_utils import from_none
+from ...model.model_utils import from_str
+from ...model.model_utils import from_union
+from ...model.model_utils import to_class
+from .device import Device
+from .device import DeviceType
 
 
 class LockState(Enum):

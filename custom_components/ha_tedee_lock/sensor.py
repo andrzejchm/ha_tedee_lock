@@ -1,14 +1,20 @@
 from typing import Optional
 
-from homeassistant.components.binary_sensor import BinarySensorEntity, BinarySensorEntityDescription, \
-    BinarySensorDeviceClass
-from homeassistant.components.sensor import SensorEntity, SensorDeviceClass, SensorStateClass, SensorEntityDescription
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.binary_sensor import BinarySensorEntity
+from homeassistant.components.binary_sensor import BinarySensorEntityDescription
+from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.sensor import SensorEntity
+from homeassistant.components.sensor import SensorEntityDescription
+from homeassistant.components.sensor import SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.update_coordinator import CoordinatorEntity, DataUpdateCoordinator
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from .const import CONF_DEVICE_INFO, CONF_DEVICE_TYPE
+from .const import CONF_DEVICE_INFO
+from .const import CONF_DEVICE_TYPE
 from .const import DOMAIN
 from .model.device_type import DeviceType
 from .model.devices.lock import Lock

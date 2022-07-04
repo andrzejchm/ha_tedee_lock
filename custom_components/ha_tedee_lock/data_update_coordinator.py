@@ -7,7 +7,6 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
 from . import TedeeLockApiClient
 from .const import DOMAIN
-
 from .model.states.device_state import DeviceState
 
 _LOGGER = logging.getLogger(__name__)

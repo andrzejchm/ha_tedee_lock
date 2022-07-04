@@ -1,24 +1,24 @@
 """Sample API Client."""
 import logging
 from typing import List
-import aiohttp
 
+import aiohttp
 from homeassistant.core import HomeAssistant
 
 from .const import API_BASE_URL
+from .model.devices.bridge import Bridge
+from .model.devices.device import Device
 from .model.devices.keypad import Keypad
+from .model.devices.lock import Lock
 from .model.responses.my_bridge_response import MyBridgeResponse
 from .model.responses.my_keypad_response import MyKeypadResponse
+from .model.responses.my_lock_response import MyLockResponse
+from .model.responses.my_lock_sync_response import MyLockSyncResponse
 from .model.responses.operation_response import OperationResponse
+from .model.states.device_state import DeviceState
 from .model.states.device_state_lock import (
     DeviceStateLock,
 )
-from .model.devices.bridge import Bridge
-from .model.responses.my_lock_response import MyLockResponse
-from .model.responses.my_lock_sync_response import MyLockSyncResponse
-from .model.devices.device import Device
-from .model.devices.lock import Lock
-from .model.states.device_state import DeviceState
 
 TIMEOUT = 10
 

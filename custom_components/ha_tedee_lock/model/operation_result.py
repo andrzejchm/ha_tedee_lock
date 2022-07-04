@@ -1,7 +1,10 @@
 from dataclasses import dataclass
-from typing import Optional, Any
+from typing import Any
+from typing import Optional
 
-from .model_utils import from_union, from_str, from_none
+from .model_utils import from_none
+from .model_utils import from_str
+from .model_utils import from_union
 
 
 @dataclass

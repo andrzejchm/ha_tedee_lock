@@ -1,8 +1,10 @@
 from dataclasses import dataclass
-from typing import Optional, List, Any
+from typing import Any
+from typing import List
+from typing import Optional
 
-from ..model_utils import from_list
 from ..devices.bridge import Bridge
+from ..model_utils import from_list
 from .response_metadata import ResponseMetadata
 
 

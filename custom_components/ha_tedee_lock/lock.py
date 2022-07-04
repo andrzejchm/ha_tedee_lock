@@ -1,21 +1,24 @@
 import asyncio
 import logging
 from datetime import timedelta
-from typing import Any, cast, Optional
+from typing import Any
+from typing import cast
+from typing import Optional
 
-from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from custom_components.ha_tedee_lock.model.devices.device import DeviceType
 from homeassistant.components.lock import LockEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from . import TedeeUpdateCoordinator
+from .const import CONF_DEVICE_INFO
+from .const import CONF_DEVICE_TYPE
+from .const import DOMAIN
 from .model.devices import device_from_dict
-from .model.devices.lock import Lock, LockState
-
-from .const import CONF_DEVICE_INFO, DOMAIN, CONF_DEVICE_TYPE
-
-from custom_components.ha_tedee_lock.model.devices.device import DeviceType
+from .model.devices.lock import Lock
+from .model.devices.lock import LockState
 from .model.states.device_state_lock import DeviceStateLock
 
 _LOGGER = logging.getLogger(__name__)

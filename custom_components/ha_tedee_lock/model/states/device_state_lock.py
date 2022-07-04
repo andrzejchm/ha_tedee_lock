@@ -1,10 +1,15 @@
 from dataclasses import dataclass
-from typing import Optional, Any
+from typing import Any
+from typing import Optional
 
 from ..device_type import DeviceType
-from ..states.device_state import DeviceState
-from ..model_utils import from_none, from_union, from_int, from_bool, to_class
 from ..devices.lock import LockProperties
+from ..model_utils import from_bool
+from ..model_utils import from_int
+from ..model_utils import from_none
+from ..model_utils import from_union
+from ..model_utils import to_class
+from ..states.device_state import DeviceState
 
 
 @dataclass

@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from typing import List, Any
+from typing import Any
+from typing import List
 
 from ..model_utils import from_list
-from .response_metadata import ResponseMetadata
 from ..states.device_state_lock import DeviceStateLock
+from .response_metadata import ResponseMetadata
 
 
 @dataclass

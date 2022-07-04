@@ -1,9 +1,15 @@
 from dataclasses import dataclass
-from typing import Optional, Any
+from typing import Any
+from typing import Optional
 
-from .response_metadata import ResponseMetadata
-from ..model_utils import from_union, from_none, from_bool, from_list, from_int, to_class
+from ..model_utils import from_bool
+from ..model_utils import from_int
+from ..model_utils import from_list
+from ..model_utils import from_none
+from ..model_utils import from_union
+from ..model_utils import to_class
 from ..operation_result import OperationResult
+from .response_metadata import ResponseMetadata
 
 
 @dataclass

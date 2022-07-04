@@ -1,5 +1,4 @@
 """Test Tedee Lock config flow."""
-
 import pytest
 from homeassistant.core import HomeAssistant
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker

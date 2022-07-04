@@ -1,7 +1,9 @@
 """Tedee devices model"""
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 from dataclasses import dataclass
-from typing import Any, Tuple
+from typing import Any
+from typing import Tuple
 
 from ..device_type import DeviceType
 

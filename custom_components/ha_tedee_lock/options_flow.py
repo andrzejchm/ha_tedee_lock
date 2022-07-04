@@ -5,8 +5,8 @@ from homeassistant import config_entries
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
-from . import TedeeLockApiClient
 from . import access_token_schema
+from . import TedeeLockApiClient
 
 _LOGGER = logging.getLogger(__name__)
 

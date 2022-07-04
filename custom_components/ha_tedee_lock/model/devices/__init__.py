@@ -1,5 +1,5 @@
-from .lock import Lock
 from ..device_type import DeviceType
+from .lock import Lock
 
 
 def device_from_dict(
