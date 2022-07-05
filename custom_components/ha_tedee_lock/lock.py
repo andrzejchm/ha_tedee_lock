@@ -11,11 +11,10 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from . import TedeeUpdateCoordinator
+from . import TedeeUpdateCoordinator, device_from_dict
 from .const import CONF_DEVICE_INFO
 from .const import CONF_DEVICE_TYPE
 from .const import DOMAIN
-from .model.devices import device_from_dict
 from .model.devices.lock import Lock
 from .model.devices.lock import LockState
 from .model.states.device_state_lock import DeviceStateLock
